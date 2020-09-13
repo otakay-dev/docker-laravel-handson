@@ -16,6 +16,8 @@ services:
   # 追記
   db:
     image: mysql:8.0
+    ports:
+      - 33060:3306
     volumes:
       - db-store:/var/lib/mysql
       - ./infra/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
@@ -25,7 +27,7 @@ services:
       - MYSQL_PASSWORD=secret
       - MYSQL_ROOT_PASSWORD=secret
       - TZ=Asia/Tokyo
-
+  
 # 追記
 volumes:
   db-store:
